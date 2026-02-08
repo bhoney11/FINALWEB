@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Plushie Shop — Home</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="style1.css">
+  <script src="script1.js"></script>
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container d-flex align-items-center justify-content-between py-3">
+    <a class="brand" href="index.html">plushie<span class="dot">.</span></a>
+    <nav class="nav-links d-flex align-items-center gap-3">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="cart.html">Cart</a>
+      <div id="auth-controls">
+        <a href="login.html" class="btn btn-sm btn-outline-pink">Login</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="cart-sidebar" class="cart-sidebar">
+  <div class="cart-header">
+    <h5 class="fw-bold">Your Cart</h5>
+    <button id="close-cart" class="btn-close"></button>
+  </div>
+
+  <div id="cart-sidebar-items" class="cart-items p-3">
+  </div>
+
+  <div class="cart-footer p-3 border-top">
+    <div class="d-flex justify-content-between mb-3">
+      <span class="text-muted">Subtotal</span>
+      <strong id="cart-sidebar-subtotal" class="fs-5">$0.00</strong>
+    </div>
+    <button onclick="window.location.href='checkout.html'" class="btn btn-dark w-100 py-2 fw-bold text-uppercase">
+      Checkout
+    </button>
+  </div>
+</div>
+<div id="cart-overlay"></div>
+<section class="hero-carousel">
+  <div class="carousel-track">
+    <!-- Слайд 1 -->
+    <div class="carousel-slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/banner.jpg');">
+      <div class="carousel-content">
+        <h1 class="display-4 fw-bold">Shop the newest drop!</h1>
+        <p class="lead">Only available for a limited time.</p>
+        <div class="d-flex gap-2 justify-content-center">
+          <a href="shop.html" class="btn btn-pink btn-lg">Shop Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/banner1.jpg');">
+      <div class="carousel-content">
+        <h1 class="display-4 fw-bold">Discover New Plush Friends!</h1>
+        <p class="lead">Limited edition collectibles every month.</p>
+        <a href="shop.html" class="btn btn-pink btn-lg">Explore Catalog</a>
+      </div>
+    </div>
+  </div>
+
+  <button class="prev carousel-btn">❮</button>
+  <button class="next carousel-btn">❯</button>
+</section>
+
+
+
+<main class="container mt-5 mb-5">
+  <div class="row align-items-center">
+    <div class="col-lg-6">
+      <h1 class="display-5">Soft friends for everyone 💗</h1>
+      <p class="lead">Collect your favorite plushies — limited editions from Makeship & Animate (images used with attribution).</p>
+      <a class="btn btn-pink btn-lg" href="shop.html">Shop Now</a>
+    </div>
+    <div class="col-lg-6 text-center">
+      <!-- Replace with your hero image in images/ -->
+      <img src="till.jpg" alt="Plushie till" class="img-fluid hero-img">
+    </div>
+  </div>
+</main>
+
+<section class="container mb-5">
+  <div class="row text-center">
+    <div class="col-md-4">
+      <div class="feature">Free Shipping <small class="d-block text-muted">Over $50</small></div>
+    </div>
+    <div class="col-md-4">
+      <div class="feature">Secure Payment <small class="d-block text-muted">Kaspi, Visa, Mastercard</small></div>
+    </div>
+    <div class="col-md-4">
+      <div class="feature">Quality Guarantee <small class="d-block text-muted">Hand-stitched details</small></div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <strong>plushie</strong>
+      <p>Gift & Decoration Store</p>
+    </div>
+
+    <div class="footer-center">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="product.html">Product</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+
+    <div class="footer-right">
+      <p><b>📞</b> +7 (777) 123-45-67</p>
+      <p><b>📸</b> <a href="https://instagram.com/plushie.store" target="_blank">@plushie.store</a></p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>Copyright © 2025 plushie. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+    </div>
+  </div>
+</footer>
