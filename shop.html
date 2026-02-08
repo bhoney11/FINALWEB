@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Plushie Shop — Shop</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container d-flex align-items-center justify-content-between py-3">
+    <a class="brand" href="index.html">plushie<span class="dot">.</span></a>
+    <nav class="nav-links d-flex align-items-center gap-3">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="cart.html">Cart</a>
+      <div id="auth-controls">
+        <!-- Сюда JS вставит Login или Logout -->
+        <a href="login.html" class="btn btn-sm btn-outline-pink">Login</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Панель админа (скрыта по умолчанию через d-none) -->
+<div id="admin-panel" class="d-none container mt-3 p-4 border bg-light rounded shadow-sm">
+  <h4>Admin: Add New Plushie</h4>
+  <form id="add-toy-form" class="row g-2">
+    <div class="col-md-4"><input type="text" id="t-name" placeholder="Name" class="form-control" required></div>
+    <div class="col-md-3"><input type="number" id="t-price" placeholder="Price" class="form-control" required></div>
+    <div class="col-md-3"><input type="text" id="t-img" placeholder="Image URL" class="form-control"></div>
+    <div class="col-md-2"><button type="submit" class="btn btn-pink w-100">Create</button></div>
+  </form>
+</div>
+
+<main class="container mt-4 mb-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Shop Catalog</h2>
+    <select id="filter-select" class="form-select form-select-sm" style="width: 150px;">
+      <option value="all">All</option>
+      <option value="cute">Cute</option>
+      <option value="retro">Retro</option>
+    </select>
+  </div>
+  <!-- 🛒 Боковая корзина (Sidebar) -->
+  <div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h5>Your Cart</h5>
+      <button id="close-cart" class="btn-close"></button>
+    </div>
+    <div id="cart-sidebar-items" class="cart-items">
+      <!-- Сюда JS добавит товары -->
+    </div>
+    <div class="cart-footer mt-3">
+      <div class="d-flex justify-content-between">
+        <strong>Subtotal:</strong>
+        <span id="cart-sidebar-subtotal">$0.00</span>
+      </div>
+      <a href="cart.html" class="btn btn-outline-secondary w-100 mt-3">View Full Cart</a>
+      <a href="checkout.html" class="btn btn-pink w-100 mt-2">Checkout</a>
+    </div>
+  </div>
+  <div id="cart-overlay"></div>
+  <!-- Контейнер для товаров (заполняется из JS) -->
+  <div class="row" id="products-grid">
+    <div class="text-center">Loading toys...</div>
+  </div>
+</main>
+
+<!-- Modal для РЕДАКТИРОВАНИЯ (ОДИН РАЗ) -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="edit-toy-form">
+          <input type="hidden" id="edit-id">
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" id="edit-name" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Price ($)</label>
+            <input type="number" id="edit-price" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Image URL</label>
+            <input type="text" id="edit-img" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-pink w-100 mt-2">Save Changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <strong>plushie</strong>
+      <p>Gift & Decoration Store</p>
+    </div>
+    <div class="footer-center">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="#">Product</a>
+      <a href="#">Contact Us</a>
+    </div>
+    <div class="footer-right">
+      <p><b>📞</b> +7 (777) 123-45-67</p>
+      <p><b>📸</b> @plushie.store</p>
+    </div>
+  </div>
+  <div class="footer-bottom text-center mt-3">
+    <p>Copyright © 2025 plushie. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Подключение скриптов (ОДИН РАЗ В КОНЦЕ) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script1.js"></script>
+</body>
+</html>
