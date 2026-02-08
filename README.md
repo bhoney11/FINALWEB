@@ -1,110 +1,145 @@
-Plushie Shop — Full-Stack E-Commerce Platform
+Plushie Shop — Full-Stack E‑Commerce Platform
 
-Plushie Shop is a specialized online marketplace for limited-edition collectible plush toys. This project is a complete Full-Stack application featuring a robust MVC architecture, secure authentication with Role-Based Access Control (RBAC), and a highly interactive, responsive frontend.
+**Plushie Shop** is a full‑stack web application for limited‑edition collectible plush toys. The project demonstrates a clean **MVC architecture**, secure **authentication with Role‑Based Access Control (RBAC)**, and a modern, responsive frontend with real‑time updates.
 
-Key Features
-Authentication & Authorization
 
-JWT Security: Secure user sessions using JSON Web Tokens.
 
-Password Hashing: Industry-standard encryption using bcryptjs.
+## Key Features
 
-Role-Based Access (RBAC):
+### Authentication & Authorization
 
-User: Browse catalog, manage cart, and simulate checkout.
+* **JWT‑based security** for stateless user sessions
+* **Password hashing** with `bcryptjs`
+* **Role‑Based Access Control (RBAC)**
 
-Admin: Exclusive access to a product management dashboard (Full CRUD).
+  * **User**: browse the catalog, manage the cart, and simulate checkout
+  * **Admin**: access a protected dashboard with full **CRUD** over products
 
-🛍 Interactive Catalog & Cart
+---
 
-Dynamic Rendering: Products are fetched from MongoDB Atlas and displayed in real-time.
+### Interactive Catalog & Cart
 
-Makeship-Style Sidebar Cart: A smooth, slide-out cart menu allowing users to adjust quantities (+/-) without leaving the page.
+* **Dynamic product rendering** from MongoDB Atlas
+* **Makeship‑style slide‑out cart** with inline quantity controls (+ / −)
+* **Real‑time synchronization**: when an Admin updates a product (name/price), all active carts reflect the change instantly
 
-Real-Time Synchronization: If an Admin edits a product's price or name, the user's cart updates automatically to reflect the changes.
+---
 
-📱 Modern User Experience
+###Modern User Experience
 
-Animated Carousel: Interactive hero section for featured collections.
+* **Animated hero carousel** for featured collections
+* **Responsive design** (mobile, tablet, desktop) using Bootstrap 5
+* **Checkout simulation** with order confirmation generation
 
-Responsive UI: Fully functional on mobile, tablet, and desktop devices using Bootstrap 5.
+---
 
-Checkout Simulation: Complete shopping flow from product selection to a generated order confirmation.
+## Tech Stack
 
-🛠 Tech Stack
+**Frontend**
 
-Frontend: HTML5, CSS3 (Modern Flex/Grid), JavaScript (ES6+), Bootstrap 5.
+* HTML5, CSS3 (Flexbox & Grid)
+* JavaScript (ES6+)
+* Bootstrap 5
 
-Backend: Node.js, Express.js.
+**Backend**
 
-Database: MongoDB Atlas (Cloud Database).
+* Node.js, Express.js
 
-Tools: Mongoose (ODM), Dotenv, CORS, JWT, Bcrypt.js.
+**Database**
 
-Project Structure (MVC Architecture)
-code
-Text
-download
-content_copy
-expand_less
+* MongoDB Atlas (Cloud)
+* Mongoose (ODM)
+
+**Security & Utilities**
+
+* JSON Web Tokens (JWT)
+* bcryptjs
+* dotenv
+* CORS
+
+---
+
+## Project Structure (MVC)
+
+```
 /FINAL-PROJECT
-  ├── models/          # Mongoose Schemas (User, Toy, Review)
-  ├── controllers/     # Request handlers (Logic behind API)
-  ├── routes/          # API endpoint definitions
-  ├── middleware/      # Auth protection & Role verification
-  ├── public/          # Static files (Frontend: HTML, CSS, JS, Images)
-  ├── .env             # Environment variables (Private keys)
-  ├── server.js        # Main entry point of the application
-  └── package.json     # Project dependencies and scripts
- API Documentation 
- Authentication
-Method	Endpoint	Description	Access
-POST	/api/auth/register	Creates a new user/admin account	Public
-POST	/api/auth/login	Validates credentials & returns JWT	Public Products (Toys)
-Method	Endpoint	Description	Access
-GET	/api/toys	Retrieve all products	Public
-POST	/api/toys	Create a new plushie	Admin Only
-PUT	/api/toys/:id	Update product details & sync cart	Admin Only
-DELETE	/api/toys/:id	Remove product from store	Admin Only
-Reviews (Relational Logic)
-Method	Endpoint	Description	Access
-GET	/api/reviews/:toyId	Get reviews linked to a toy ID	Public
-POST	/api/reviews	Post a review linked to a toy	Registered
-Local Installation
-1. Prerequisites
+├── models/        # Mongoose schemas (User, Toy, Review)
+├── controllers/   # Business logic & request handlers
+├── routes/        # API endpoint definitions
+├── middleware/    # Authentication & role verification
+├── public/        # Frontend (HTML, CSS, JS, images)
+├── .env           # Environment variables (private)
+├── server.js      # Application entry point
+└── package.json   # Dependencies & scripts
+```
 
-Node.js installed on your machine.
+---
 
-A MongoDB Atlas cluster or local MongoDB instance.
+## API Documentation
 
-2. Setup
+### Authentication
 
-Clone the project and install dependencies:
+| Method | Endpoint             | Description                    | Access |
+| -----: | -------------------- | ------------------------------ | ------ |
+|   POST | `/api/auth/register` | Register a new user or admin   | Public |
+|   POST | `/api/auth/login`    | Authenticate user & return JWT | Public |
 
-code
-Bash
-download
-content_copy
-expand_less
-npm install
-3. Environment Variables
+---
 
-Create a .env file in the root folder and add your credentials:
+### Products (Plushies)
 
-code
-Env
-download
-content_copy
-expand_less
-MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/plushie_db
-JWT_SECRET=your_super_secret_key
-PORT=3000
-4. Run Application
-code
-Bash
-download
-content_copy
-expand_less
-node server.js
+| Method | Endpoint        | Description                       | Access     |
+| -----: | --------------- | --------------------------------- | ---------- |
+|    GET | `/api/toys`     | Retrieve all products             | Public     |
+|   POST | `/api/toys`     | Create a new plushie              | Admin only |
+|    PUT | `/api/toys/:id` | Update product details            | Admin only |
+| DELETE | `/api/toys/:id` | Remove a product from the catalog | Admin only |
 
-The shop will be available at: http://localhost:3000
+---
+
+### Reviews (Relational Logic)
+
+| Method | Endpoint              | Description                        | Access        |
+| -----: | --------------------- | ---------------------------------- | ------------- |
+|    GET | `/api/reviews/:toyId` | Get reviews for a specific plushie | Public        |
+|   POST | `/api/reviews`        | Post a review linked to a plushie  | Authenticated |
+
+---
+
+## Local Installation
+
+### Prerequisites
+
+* Node.js (v16+ recommended)
+* MongoDB Atlas cluster or local MongoDB instance
+
+---
+
+### Setup
+
+1. **Clone the repository** and install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+2. **Create a `.env` file** in the project root:
+
+   ```env
+   MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/plushie_db
+   JWT_SECRET=your_super_secret_key
+   PORT=3000
+   ```
+
+3. **Run the application**:
+
+   ```bash
+   node server.js
+   ```
+
+---
+ Access
+
+The application will be available at:
+
+**[http://localhost:3000](http://localhost:3000)**
