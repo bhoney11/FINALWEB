@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Order Complete — Plushie Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container py-3"><a class="brand" href="index.html">plushie<span class="dot">.</span></a></div>
+</header>
+
+<main class="container mt-5 text-center">
+  <div class="card p-5 shadow-sm border-0 mx-auto" style="max-width: 600px; border-radius: 20px;">
+    <div class="display-1 mb-3">🎉</div>
+    <h2 class="fw-bold">Thank you for your order!</h2>
+    <p class="text-muted">Your order <strong>#ORD-${Math.floor(Math.random() * 1000000)}</strong> has been placed successfully.</p>
+    <p>We've sent a confirmation email to your inbox.</p>
+    <hr>
+    <div id="order-summary-final"></div>
+    <a href="index.html" class="btn btn-pink btn-lg mt-3">Back to Home</a>
+  </div>
+</main>
+
+<script src="script1.js"></script>
+</body>
+</html>
